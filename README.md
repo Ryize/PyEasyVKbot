@@ -1,4 +1,4 @@
-# pyeasyvkbot
+# PyEasyVKbot
 
 Library for writing bots for VK. Automatic logging, keyboard support, work with API and database
 
