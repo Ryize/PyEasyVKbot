@@ -56,7 +56,7 @@ if __name__ == '__main__':
 
     server = Server(api_token='YOUR TOKEN', group_id=id_int, debug=True)
 
-    server.admins = [513239285]
+    server.admins = [your_vk_id_int]
 
     COMMANDS = {
         '/help': {
