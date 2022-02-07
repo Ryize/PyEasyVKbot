@@ -4,6 +4,9 @@ Library for writing bots for VK. Automatic logging, keyboard support, work with 
 
 ## Deploy locally:
 
+> Install Python(If it's not installed)<br>
+> [Download Python3](https://www.python.org/downloads/)
+
 Clone the repository
 ```
 git clone https://github.com/Ryize/pyeasyvkbot.git
