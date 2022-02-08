@@ -136,14 +136,13 @@ class APIBackendMixin:
             data = self.__to_json(data)
         return data
 
-    def post(self, page: str = '', data: dict = '', json: bool = False):
+    def post(self, page: str = '', data: dict = '', json: bool = False, verify: bool = True):
         data = requests.post(self.full_url + page, data=data, verify=verify).text
         if json:
             data = self.__to_json(data)
         return data
 
     def __to_json(self, data):
-        print(data)
         return json.loads(data)
 
     @staticmethod
