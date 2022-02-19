@@ -7,13 +7,13 @@ Library for writing bots for VK. Automatic logging, keyboard support, work with 
 > Install Python(If it's not installed)<br>
 > [Download Python3](https://www.python.org/downloads/)
 
-Clone the repository and go to installed folder
+Clone the repository and go to installed folder:
 ```
 git clone https://github.com/Ryize/pyeasyvkbot.git
 cd pyeasyvkbot
 ```
 
-Install requirements
+Install requirements:
 ```
 pip3 install -r requirements.txt
 ```
@@ -84,7 +84,7 @@ if __name__ == '__main__':
         server.start(COMMANDS)
 ```
 
-Run the bot
+Run the bot:
 ```
 python3 start.py
 ```
