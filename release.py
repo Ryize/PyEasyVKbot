@@ -7,7 +7,7 @@ from vk_api.bot_longpoll import VkBotEventType
 from vk_api.utils import get_random_id
 from vk_api.keyboard import VkKeyboard
 
-from core.utils import BaseStarter, LoginManagerMixin, APIBackendMixin, KeyboardMixin, FileDB, BotLogger
+from .core.utils import BaseStarter, LoginManagerMixin, APIBackendMixin, KeyboardMixin, FileDB, BotLogger
 
 
 class VkBot(BaseStarter):
@@ -62,7 +62,7 @@ class VkBot(BaseStarter):
 
     @logger.catch
     def get_bot_info(self, *args, **kwargs):
-        time_format = str(datetime.timedelta(seconds=time.time()-self.__start_time))
+        time_format = str(datetime.timedelta(seconds=time.time() - self.__start_time))
         bot_info = 'Бот работает: {}.\nВыполнено: {} команд'.format(time_format, self.__executed_commands)
         print(bot_info)
 

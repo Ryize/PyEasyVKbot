@@ -10,7 +10,7 @@ from vk_api.bot_longpoll import VkBotLongPoll, VkBotMessageEvent
 from vk_api.utils import get_random_id
 from loguru import logger
 
-from core.exceptions import AuthError, CommandStopError
+from .exceptions import *
 
 
 class FileDB:
@@ -166,6 +166,8 @@ class KeyboardMixin(VkKeyboard):
 
     def get_standart_keyboard(self):
         keyboard = VkKeyboard()
+        keyboard.add_button(label='✍️Начать диалог', color=VkKeyboardColor.POSITIVE)
+        keyboard.add_line()
         keyboard.add_button(label='🔎Помощь', color=VkKeyboardColor.PRIMARY)
         keyboard.add_line()
         keyboard.add_button(label='☠️Скрыть клавиатуру', color=VkKeyboardColor.NEGATIVE)
@@ -274,6 +276,9 @@ class BaseStarter:
                 self.command = command
                 requested_function = self.commands[command]['command']
                 requested_function(chat_id)
+                break
+        else:
+            self.send_chat(event)
 
     @logger.catch
     def __get_args_command(self, command: str, text_in_msg: str) -> Union[None, list]:
@@ -309,3 +314,6 @@ class BaseStarter:
         if text_in_msg.find(command) != -1 and command_args.count('args'):
             return_data.append(command)
         return return_data
+
+    def send_chat(self, *args, **kwargs):
+        pass
