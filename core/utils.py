@@ -21,6 +21,9 @@ class FileDB:
 
     def __init__(self, file_name: str = 'test.txt', *args, **kwargs):
         self.__file_name = file_name
+        # Создаёт файл, если он не создан
+        with open(file_name, 'a+') as file:
+            pass
         super().__init__(*args, **kwargs)
 
     def write(self, data: str, code: str = 'a'):
