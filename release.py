@@ -30,7 +30,7 @@ class VkBot(BaseStarter):
         super().__init__(*args, **kwargs)
 
     @logger.catch
-    def send_msg(self, send_id: int, message: str, keyboard: VkKeyboard = None) -> None:
+    def send_msg(self, send_id: int, message: str, keyboard: VkKeyboard = None) -> bool:
         """ Sending a message """
         if keyboard:
             self._vk_api.messages.send(peer_id=send_id,
@@ -41,6 +41,7 @@ class VkBot(BaseStarter):
             self._vk_api.messages.send(peer_id=send_id,
                                        message=message,
                                        random_id=get_random_id())
+        return True
 
     @logger.catch
     def get_user_name(self, user_id: int) -> str:
