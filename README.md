@@ -1,28 +1,28 @@
 # PyEasyVKbot
 
-Library for writing bots for VK. Automatic logging, keyboard support, work with API and database
+Библиотека для написания ботов для ВКонтакте. Готова ООП архитектура, встроенные команды, поддержка клавиатуры, работа с API и базой данных.
 
-## Deploy locally:
+## Прежде всего:
 
-> Install Python(If it's not installed)<br>
-> [Download Python3](https://www.python.org/downloads/)
+> Установите Python (если он не установлен)<br>
+> [Скачать Python3](https://www.python.org/downloads/)
 
-Clone the repository and go to installed folder:
+Клонируйте репозиторий и перейдите в установленную папку:
 ```
 git clone https://github.com/Ryize/pyeasyvkbot.git
 cd pyeasyvkbot
 ```
 
-Install requirements:
+Установите requirements:
 ```
 pip3 install -r requirements.txt
 ```
 
-Create files start.py and server.py.
-In the server.py file, create a new class, it must inherit from VkBot(release.VkBot). In the created class, create the required command.
-In start.py, call the class created in server.py and pass in the required parameters.
-set up a dictionary with all commands (Required fields: command, comment).
-Below is an example program:
+Создайте файлы start.py и server.py .
+В самом server.py создайте новый класс, он должен наследоваться от VkBot (release.VkBot). В этом классе создайте необходимую команду.
+В start.py, вызовите класс, созданный в server.py и передайте необходимые параметры.
+Настройте словарь указав необходимые параметры (обязательные поля: command, comment).
+Ниже приведен пример программы:
 
 > server.py
 ```
@@ -31,8 +31,8 @@ from release import VkBot
 
 class Server(VkBot):
     """
-    All the bot logic is the upper level of the system, inherited from the parents
-    providing the necessary functionality and allowing you to focus only on writing business logic
+    Вся логика бота - это верхний уровень системы, унаследованный от VkBot,
+    обеспечивающий необходимую функциональность и позволяющий сосредоточиться только на написании бизнес-логики
     """
 
     def __init__(self, *args, **kwargs):
@@ -84,20 +84,20 @@ if __name__ == '__main__':
         server.start(COMMANDS)
 ```
 
-Run the bot:
+Запустите бота:
 ```
 python3 start.py
 ```
 
-The library works on multithreading, each of your commands will be run in a separate thread
+Библиотека работает в режиме многопоточности, каждая из ваших команд будет выполняться в отдельном потоке.
 
-We have already implemented the help, killbot commands (Command to disable the bot).
-In case of an error, the logs will be written to the logs folder, a new file every day at 00:00
+Мы уже внедрили команды help, killbot (команда для отключения бота).
+В случае возникновения ошибки, она будет записана в файл директории logs, новый файл каждый день в 00:00.
 
-> The library involves writing a project in the OOP style
+> Библиотека предполагает написание проекта в стиле ООП
 
-> A class (VkBot) is created in release.py that already has all the functions of the library, if you want to create your own solution, use the classes from core.utils
+> Класс (VkBot) создается в release.py в котором уже есть все функции библиотеки, если вы хотите создать свое собственное решение, используйте классы из  core.utils
 
-> This library is an add-on for vk-api
+> Эта библиотека является надстройкой к vk-api
 
-> Technologies used in the project: Python3, vk-api, threading, loguru, requests, json, re.
+> Технологии, использованные в проекте: Python3, vk-api, threading, loguru, requests, json, re.
